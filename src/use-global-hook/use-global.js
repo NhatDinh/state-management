@@ -6,13 +6,19 @@ import { resolveCname } from "dns";
 
 const initialState = {
   objects: {},
-  cards: []
+  cards: [],
+  selectedCard: ""
 };
 
 const actions = {
   addToCounter: (store, amount) => {
     const newCounterValue = store.state.counter + amount;
     store.setState({ counter: newCounterValue });
+  },
+
+  setSelectedCard: (store, uid) => {
+    store.setState({ selectedCard: uid });
+    
   },
 
   getData: store => {

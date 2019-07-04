@@ -3,7 +3,6 @@ import useGlobal from "./use-global";
 
 const Child = props => {
   const [globalState, globalActions] = useGlobal();
-  console.log("<Child/> log:", globalState.cards);
   return (
     <div>
       <button type="button" onClick={() => globalActions.getData()}>
@@ -12,9 +11,12 @@ const Child = props => {
       {globalState.cards.length > 0 && (
         <ul>
           {globalState.cards.map((card, index) => (
-            <li key={index}>
+            <button
+              key={index}
+              onClick={() => globalActions.setSelectedCard(card.uid)}
+            >
               {card.cardNumber} on {card.addedOn}
-            </li>
+            </button>
           ))}
         </ul>
       )}

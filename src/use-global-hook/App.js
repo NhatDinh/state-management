@@ -5,6 +5,7 @@ import useGlobal from "./use-global";
 
 const App = () => {
   const [globalState, globalActions] = useGlobal();
+  console.log("global state:", globalState);
   return (
     <div>
       <Child />
